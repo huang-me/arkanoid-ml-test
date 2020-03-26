@@ -61,6 +61,7 @@ def ml_loop():
             if dest < 0 :
                 dest = -dest
             dest -= 15
+        
 
         # 3.4. Send the instruction for this frame to the game process
         if not ball_served:
