@@ -40,7 +40,7 @@ def ml_loop():
             return 0
         elif(VectorX>0 and VectorY<0):
             return 1
-        elif(VectorX<=0 and VectorY>=0):
+        elif(VectorX<0 and VectorY>0):
             return 2
         elif(VectorX<0 and VectorY<0):
             return 3
@@ -63,7 +63,7 @@ def ml_loop():
         s = [scene_info.ball[0],scene_info.ball[1]]
         feature = np.array(feature)
         feature = feature.reshape((-1,5))
-        print(feature)
+        # print(feature)
         # 3.2. If the game is over or passed, the game process will reset
         #      the scene and wait for ml process doing resetting job.
         if scene_info.status == GameStatus.GAME_OVER or \
@@ -87,10 +87,10 @@ def ml_loop():
             
             if y == 0:
                 comm.send_instruction(scene_info.frame, PlatformAction.NONE)
-                print('NONE')
+                # print('NONE')
             elif y == 1:
                 comm.send_instruction(scene_info.frame, PlatformAction.MOVE_LEFT)
-                print('LEFT')
+                # print('LEFT')
             elif y == 2:
                 comm.send_instruction(scene_info.frame, PlatformAction.MOVE_RIGHT)
-                print('RIGHT')
+                # print('RIGHT')
